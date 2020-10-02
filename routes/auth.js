@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { check, validationResult } = require('express-validator');
-const { signout, signup, signin } = require('../controllers/auth');
+const { signout, signup, signin, isSignedIn } = require('../controllers/auth');
 
 router.post("/signup", [
     check("username", "username should be atleast 3 characters long").isLength({ min: 3 }),
