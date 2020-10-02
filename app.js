@@ -6,8 +6,10 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const authRoutes = require('./routes/auth');
 const PORT = process.env.PORT || 5000;
 
+//DB Connection
 mongoose.connect(process.env.MONGOURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -21,8 +23,13 @@ mongoose.connection.on('error', (err) => {
     console.log("Error in connecting to database", err);
 });
 
+//Middlewares
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors());
 
+//Routes
+app.use("/api/auth", authRoutes);
+
+//Server starting
 app.listen(PORT, () => console.log(`server running on port ${PORT}`));
