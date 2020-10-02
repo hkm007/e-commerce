@@ -12,7 +12,8 @@ const PORT = process.env.PORT || 5000;
 //DB Connection
 mongoose.connect(process.env.MONGOURI, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useCreateIndex: true
 });
 
 mongoose.connection.on('connected', () => {
