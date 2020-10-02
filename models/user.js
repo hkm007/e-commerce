@@ -44,7 +44,7 @@ userSchema.virtual("password")
             return this._password;
         })
 
-userSchema.method = {
+userSchema.methods = {
     securePassword: function(plainpassword) {
         if(!plainpassword) return "";
         try {
