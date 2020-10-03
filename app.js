@@ -9,6 +9,7 @@ const cookieParser = require('cookie-parser');
 const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/user');
 const categoryRoutes = require('./routes/category');
+const productRoutes = require('./routes/product');
 const PORT = process.env.PORT || 5000;
 
 //DB Connection
@@ -35,6 +36,7 @@ app.use(cors());
 app.use("/api", authRoutes);
 app.use("/api", userRoutes);
 app.use("/api", categoryRoutes);
+app.use("/api", productRoutes);
 
 //Server starting
 app.listen(PORT, () => console.log(`server running on port ${PORT}`));
